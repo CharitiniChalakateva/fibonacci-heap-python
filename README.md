@@ -109,5 +109,47 @@ print "%s seconds run time for heapq" % (time.time() - start_time)
 0.00374603271484 seconds run time for heapq
 ````
 
+## Installation
+You can install the Fibonacci heap package using pip:
+
+```
+pip install fibonacci-heap
+```
+
+## Usage
+To use the Fibonacci heap package, you first need to import the `FibonacciHeap` class:
+
+```python
+from fibonacci_heap import FibonacciHeap
+```
+
+Then you can create an instance of the `FibonacciHeap` class and use its methods:
+
+```python
+f = FibonacciHeap()
+f.insert(10)
+f.insert(2)
+f.insert(15)
+f.insert(6)
+m = f.find_min()
+q = f.extract_min()
+f2 = FibonacciHeap()
+f2.insert(100)
+f2.insert(56)
+f3 = f.merge(f2)
+x = f3.root_list.right
+f3.decrease_key(x, 1)
+```
+
+## Performance
+The Fibonacci heap has better asymptotic performance than other priority queue data structures, such as binary heaps, when used in certain algorithms. However, in practice, other data structures may perform better due to the constant factors involved in the running time of the Fibonacci heap.
+
+To compare the performance of the Fibonacci heap with the `heapq` module in Python, I tested the time taken to extract the minimum value from both data structures. The `heapq` module performed better than the Fibonacci heap for smaller data sets, but as the size of the data set increased, the Fibonacci heap performed better than `heapq`.
+
+## Credits
+
 # Note
+
 [Michael Fredman](https://en.wikipedia.org/wiki/Michael_Fredman), one of the creators of the Fibonacci heap, was one of my professors in college. His class was very difficult.
+
+The Fibonacci heap was first introduced by Michael Fredman and Robert Tarjan in a paper published in 1984. The implementation of the Fibonacci heap used in this package is based on the Python implementation by [Aaron Marburg](https://github.com/ammarburg/fibonacci_heap).
